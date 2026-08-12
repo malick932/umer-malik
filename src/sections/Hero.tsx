@@ -105,7 +105,7 @@ export function Hero() {
             variants={fadeUp}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-white/35 sm:mt-16 sm:gap-x-10 sm:gap-y-4"
           >
-            {["Unity", "C#", "Multiplayer", "AR / VR", "Mobile & PC"].map((tag) => (
+            {["Unity", "C#", "AR", "Mobile & PC"].map((tag) => (
               <span key={tag} className="font-mono text-xs uppercase tracking-[0.2em]">
                 {tag}
               </span>
