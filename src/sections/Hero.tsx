@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-24"
+      className="relative flex min-h-screen items-center overflow-hidden bg-bg pb-16 pt-24 sm:pb-0"
     >
       <div className="absolute inset-0">
         <GradientBlobs />
@@ -103,7 +103,7 @@ export function Hero() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-white/35"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-white/35 sm:mt-16 sm:gap-x-10 sm:gap-y-4"
           >
             {["Unity", "C#", "Multiplayer", "AR / VR", "Mobile & PC"].map((tag) => (
               <span key={tag} className="font-mono text-xs uppercase tracking-[0.2em]">

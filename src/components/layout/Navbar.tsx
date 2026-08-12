@@ -118,7 +118,7 @@ export function Navbar() {
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
+            exit={{ opacity: 0, y: -12, transition: { duration: 0.12 } }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="mx-3 mt-2 rounded-2xl border border-white/10 bg-black/80 p-4 backdrop-blur-xl lg:hidden"
           >

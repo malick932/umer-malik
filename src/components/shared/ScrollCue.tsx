@@ -8,7 +8,7 @@ export function ScrollCue() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.6, duration: 0.8 }}
-      className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3"
+      className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex"
     >
       <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/40">
         Scroll
