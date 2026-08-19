@@ -205,4 +205,18 @@ export const projects: Project[] = [
     images: [],
     videos: ["/videos/projects/bike-rush/gameplay.mp4"],
   },
+  {
+    id: "flying-birds",
+    title: "Flying Birds",
+    tagline: "Fly, dodge, survive",
+    description:
+      "A 2D endless flying game featuring multiple playable bird characters — parrot, lovebird, pigeon, and blue parrot — controlled through three selectable input schemes: joystick, invisible joystick, or left/right buttons. Dodge dynamic obstacles like predatory eagles while collecting shields and point-boosting power-ups. Built around responsive controls, endless level design, and replayable mechanics.",
+    platforms: ["Mobile"],
+    tags: ["2D", "Endless Runner", "Arcade", "Casual"],
+    technologies: ["Unity", "C#"],
+    links: {},
+    icon: "/images/projects/flying-birds/icon.jpg",
+    images: [],
+    videos: ["/videos/projects/flying-birds/gameplay.mp4"],
+  },
 ];
