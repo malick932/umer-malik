@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { navItems } from "@/data/site";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useAvailableSections } from "@/hooks/useAvailableSections";
@@ -93,6 +93,16 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+              data-cursor-hover
+              aria-label="Open command menu"
+              className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-2 text-xs text-white/50 transition-colors hover:border-white/25 hover:text-white lg:inline-flex"
+            >
+              <Search size={13} />
+              <span className="font-mono">⌘K</span>
+            </button>
             <a
               href="#contact"
               data-cursor-hover

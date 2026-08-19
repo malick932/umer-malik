@@ -48,8 +48,18 @@ export function ProjectCard({
           onClick={onOpen}
           onKeyDown={handleKeyDown}
           data-cursor-hover
-          className="gradient-border group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-white/[0.02] text-left transition-colors hover:bg-white/[0.04]"
+          className="gradient-border group relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-white/[0.02] text-left transition-colors hover:bg-white/[0.04]"
         >
+          {/* HUD corner accents, revealed on hover */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1.5 top-1.5 z-10 h-4 w-4 rounded-tl-lg border-l-2 border-t-2 border-cyan/0 transition-colors duration-300 group-hover:border-cyan/70"
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-1.5 right-1.5 z-10 h-4 w-4 rounded-br-lg border-b-2 border-r-2 border-purple/0 transition-colors duration-300 group-hover:border-purple/70"
+          />
+
           {/* Visual */}
           <div className="relative aspect-[4/3] overflow-hidden bg-surface">
             {hasScreenshots ? (

@@ -9,6 +9,10 @@ import { InteractiveCursor } from "@/components/layout/InteractiveCursor";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SoundProvider } from "@/components/layout/SoundProvider";
+import { SoundToggle } from "@/components/layout/SoundToggle";
+import { CommandPalette } from "@/components/layout/CommandPalette";
+import { AchievementToast } from "@/components/layout/AchievementToast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,15 +74,20 @@ export default function RootLayout({
         className="min-h-full cursor-default bg-bg text-white selection:bg-purple/40"
         suppressHydrationWarning
       >
-        <LoadingScreen />
-        <ScrollProgressBar />
-        <CursorGlow />
-        <InteractiveCursor />
-        <Navbar />
-        <SmoothScrollProvider>
-          <main>{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <SoundProvider>
+          <LoadingScreen />
+          <ScrollProgressBar />
+          <CursorGlow />
+          <InteractiveCursor />
+          <Navbar />
+          <SoundToggle />
+          <CommandPalette />
+          <AchievementToast />
+          <SmoothScrollProvider>
+            <main>{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
+        </SoundProvider>
       </body>
     </html>
   );

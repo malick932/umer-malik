@@ -39,42 +39,62 @@ export function HeroCanvas() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    // Particle field: sparse points standing in for a distant "starfield" /
-    // digital-world motif, subtly reactive to the cursor.
-    const PARTICLE_COUNT = 260;
+    // Particle field: sparse, multi-color points standing in for a distant
+    // "starfield" / digital-world motif, subtly reactive to the cursor.
+    const PARTICLE_COUNT = 420;
     const positions = new Float32Array(PARTICLE_COUNT * 3);
+    const colors = new Float32Array(PARTICLE_COUNT * 3);
+    const palette = [
+      new THREE.Color("#a78bfa"),
+      new THREE.Color("#60a5fa"),
+      new THREE.Color("#22d3ee"),
+    ];
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 16;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+      positions[i * 3] = (Math.random() - 0.5) * 18;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 11;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 11;
+
+      const color = palette[i % palette.length];
+      colors[i * 3] = color.r;
+      colors[i * 3 + 1] = color.g;
+      colors[i * 3 + 2] = color.b;
     }
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 0.035,
-      color: new THREE.Color("#a78bfa"),
+      size: 0.04,
+      vertexColors: true,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.85,
       sizeAttenuation: true,
     });
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // A handful of faint wireframe icosahedra drifting in the distance —
-    // a nod to game-engine geometry without being literal or heavy.
+    // A handful of faint wireframe game-engine-style shapes drifting in the
+    // distance — a nod to 3D primitives without being literal or heavy.
     const shapes: THREE.Mesh[] = [];
-    const shapeColors = ["#a78bfa", "#60a5fa", "#22d3ee"];
-    for (let i = 0; i < 3; i++) {
-      const geo = new THREE.IcosahedronGeometry(0.9 + i * 0.25, 0);
+    const shapeColors = ["#a78bfa", "#60a5fa", "#22d3ee", "#a78bfa", "#22d3ee"];
+    const shapeGeometries = [
+      () => new THREE.IcosahedronGeometry(0.9, 0),
+      () => new THREE.OctahedronGeometry(0.85, 0),
+      () => new THREE.IcosahedronGeometry(1.1, 0),
+      () => new THREE.TorusGeometry(0.7, 0.22, 8, 24),
+      () => new THREE.OctahedronGeometry(1.0, 0),
+    ];
+    for (let i = 0; i < shapeGeometries.length; i++) {
+      const geo = shapeGeometries[i]();
       const mat = new THREE.MeshBasicMaterial({
         color: shapeColors[i],
         wireframe: true,
         transparent: true,
-        opacity: 0.18,
+        opacity: 0.22,
       });
       const mesh = new THREE.Mesh(geo, mat);
-      mesh.position.set((i - 1) * 4.2, (i % 2 === 0 ? 1 : -1) * 1.6, -3 - i);
+      const angle = (i / shapeGeometries.length) * Math.PI * 2;
+      mesh.position.set(Math.cos(angle) * 5.5, Math.sin(angle) * 2.4, -3 - (i % 3));
       scene.add(mesh);
       shapes.push(mesh);
     }
@@ -103,8 +123,8 @@ export function HeroCanvas() {
         shape.rotation.y = elapsed * 0.06 * (i + 1);
       });
 
-      camera.position.x += (mouse.x * 0.6 - camera.position.x) * 0.03;
-      camera.position.y += (mouse.y * 0.4 - camera.position.y) * 0.03;
+      camera.position.x += (mouse.x * 0.85 - camera.position.x) * 0.03;
+      camera.position.y += (mouse.y * 0.55 - camera.position.y) * 0.03;
       camera.lookAt(0, 0, 0);
 
       renderer.render(scene, camera);
