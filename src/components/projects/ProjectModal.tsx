@@ -7,6 +7,7 @@ import { ExternalLink, Monitor, Smartphone, X, type LucideIcon } from "lucide-re
 import { SiAppstore, SiGoogleplay, SiSteam } from "react-icons/si";
 import type { IconType } from "react-icons";
 import type { Project } from "@/data/projects";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 const platformIcons: Record<string, LucideIcon> = {
   Android: Smartphone,
@@ -28,17 +29,17 @@ export function ProjectModal({
   project: Project | null;
   onClose: () => void;
 }) {
+  useScrollLock(!!project);
+
   useEffect(() => {
     if (!project) return;
 
-    document.body.style.overflow = "hidden";
     const handleKey = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKey);
 
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKey);
     };
   }, [project, onClose]);
@@ -118,6 +119,27 @@ export function ProjectModal({
               <p className="mt-1 text-sm text-white/45">{project.tagline}</p>
 
               <p className="mt-5 leading-relaxed text-white/60">{project.description}</p>
+
+              {project.videos && project.videos.length > 0 && (
+                <div className="mt-6">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/35">
+                    Gameplay Video
+                  </span>
+                  <div className="mt-3 flex flex-col gap-3">
+                    {project.videos.map((video) => (
+                      <div key={video} className="overflow-hidden rounded-xl bg-black">
+                        <video
+                          src={video}
+                          controls
+                          playsInline
+                          preload="metadata"
+                          className="block w-full"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-6">
                 <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/35">

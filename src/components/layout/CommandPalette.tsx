@@ -22,6 +22,7 @@ import {
 import { SiBehance } from "react-icons/si";
 import type { IconType } from "react-icons";
 import { useSound } from "@/components/layout/SoundProvider";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -190,12 +191,7 @@ export function CommandPalette() {
     setActiveIndex(0);
   }, [query]);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   return (
     <AnimatePresence>

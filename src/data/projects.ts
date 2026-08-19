@@ -17,6 +17,8 @@ export interface Project {
   icon?: string;
   /** Real gameplay screenshots/header art, under /public. Takes priority over `icon` when present. */
   images: string[];
+  /** Gameplay video clips, under /public. Shown in the modal; also flags a video badge on the card. */
+  videos?: string[];
   featured?: boolean;
 }
 
@@ -188,5 +190,18 @@ export const projects: Project[] = [
     },
     icon: "/images/projects/luna-escape/icon.jpg",
     images: [],
+  },
+  {
+    id: "bike-rush",
+    title: "Bike Rush",
+    tagline: "Pick up, deliver, don't stop",
+    description:
+      "A 3D endless bike runner built on a pooled path system for a scalable, performance-optimized environment. Tap for forward motion, drag to steer left and right, and complete the core loop of picking up an object — an egg — and delivering it to a target point. Focused on responsive input handling, performance optimization, and scalable endless-level design.",
+    platforms: ["Mobile"],
+    tags: ["3D", "Endless Runner", "Casual"],
+    technologies: ["Unity", "C#"],
+    links: {},
+    images: [],
+    videos: ["/videos/projects/bike-rush/gameplay.mp4"],
   },
 ];

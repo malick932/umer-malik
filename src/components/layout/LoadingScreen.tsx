@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 /** Brief branded loading screen shown on first paint, then dismissed. */
 export function LoadingScreen() {
@@ -18,12 +19,7 @@ export function LoadingScreen() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = isLoading ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isLoading]);
+  useScrollLock(isLoading);
 
   return (
     <AnimatePresence>

@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { Menu, Search, X } from "lucide-react";
 import { navItems } from "@/data/site";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useAvailableSections } from "@/hooks/useAvailableSections";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import { Container } from "@/components/shared/Container";
 import { cn } from "@/lib/utils";
 
@@ -21,12 +22,7 @@ export function Navbar() {
     setIsScrolled(latest > 24);
   });
 
-  useEffect(() => {
-    document.body.style.overflow = isMobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileOpen]);
+  useScrollLock(isMobileOpen);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40">

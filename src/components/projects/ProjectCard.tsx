@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { KeyboardEvent } from "react";
 import { motion } from "motion/react";
-import { Gamepad2, Monitor, Smartphone, type LucideIcon } from "lucide-react";
+import { Gamepad2, Monitor, PlayCircle, Smartphone, type LucideIcon } from "lucide-react";
 import { SiAppstore, SiGoogleplay, SiSteam } from "react-icons/si";
 import type { IconType } from "react-icons";
 import { TiltCard } from "@/components/shared/TiltCard";
@@ -93,6 +93,15 @@ export function ProjectCard({
             )}
 
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg/90 to-transparent" />
+
+            {project.videos && project.videos.length > 0 && (
+              <span
+                title="Includes gameplay video"
+                className="glass absolute left-3 top-3 flex h-7 w-7 items-center justify-center rounded-full text-cyan"
+              >
+                <PlayCircle size={14} />
+              </span>
+            )}
 
             {/* Platform badges */}
             <div className="absolute right-3 top-3 flex gap-1.5">

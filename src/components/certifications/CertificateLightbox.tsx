@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { ShieldCheck, X } from "lucide-react";
 import type { Certification } from "@/data/certifications";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 export function CertificateLightbox({
   certification,
@@ -13,15 +14,15 @@ export function CertificateLightbox({
   certification: Certification | null;
   onClose: () => void;
 }) {
+  useScrollLock(!!certification);
+
   useEffect(() => {
     if (!certification) return;
-    document.body.style.overflow = "hidden";
     const handleKey = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKey);
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKey);
     };
   }, [certification, onClose]);
