@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Mail, MapPin } from "lucide-react";
 import { SiBehance, SiWhatsapp } from "react-icons/si";
 import type { IconType } from "react-icons";

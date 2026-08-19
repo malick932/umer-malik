@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Award, Eye, ShieldCheck } from "lucide-react";
 import { TiltCard } from "@/components/shared/TiltCard";
 import { staggerItem } from "@/animations/variants";

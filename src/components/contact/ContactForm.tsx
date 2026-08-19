@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type MouseEvent } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";

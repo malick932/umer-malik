@@ -1,4 +1,4 @@
-import type { Variants } from "framer-motion";
+import type { Variants } from "motion/react";
 
 // Standard easing curve used across the site for a premium, non-linear feel.
 export const easeOut = [0.16, 1, 0.3, 1] as const;

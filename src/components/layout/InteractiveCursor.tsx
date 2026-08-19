@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useMousePosition } from "@/hooks/useMousePosition";
 
 /** Custom dot + ring cursor that magnifies over interactive elements. Desktop only. */

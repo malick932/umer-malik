@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import type { KeyboardEvent } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Gamepad2, Monitor, Smartphone, type LucideIcon } from "lucide-react";
 import { SiAppstore, SiGoogleplay, SiSteam } from "react-icons/si";
 import type { IconType } from "react-icons";

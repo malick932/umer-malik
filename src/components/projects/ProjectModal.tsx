@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ExternalLink, Monitor, Smartphone, X, type LucideIcon } from "lucide-react";
 import { SiAppstore, SiGoogleplay, SiSteam } from "react-icons/si";
 import type { IconType } from "react-icons";

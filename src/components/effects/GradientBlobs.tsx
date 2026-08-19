@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
   type MotionValue,
-} from "framer-motion";
+} from "motion/react";
 import { useEffect } from "react";
 
 interface Blob {

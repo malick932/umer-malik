@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/site";
 import { useActiveSection } from "@/hooks/useActiveSection";

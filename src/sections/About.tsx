@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Globe, Monitor, Smartphone, type LucideIcon } from "lucide-react";
 import { SiUnity } from "react-icons/si";
 import { Container } from "@/components/shared/Container";

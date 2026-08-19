@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useMousePosition } from "@/hooks/useMousePosition";
 
 /** A soft, mouse-following light glow layered behind content. Disabled on touch devices. */
