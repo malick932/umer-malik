@@ -201,6 +201,7 @@ export const projects: Project[] = [
     tags: ["3D", "Endless Runner", "Casual"],
     technologies: ["Unity", "C#"],
     links: {},
+    icon: "/images/projects/bike-rush/icon.png",
     images: [],
     videos: ["/videos/projects/bike-rush/gameplay.mp4"],
   },
