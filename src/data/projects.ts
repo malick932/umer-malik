@@ -247,4 +247,18 @@ export const projects: Project[] = [
     images: [],
     videos: ["/videos/projects/draw-to-home/gameplay.mp4"],
   },
+  {
+    id: "layla-runner",
+    title: "Layla Runner Game",
+    tagline: "Run, dodge, snack, repeat",
+    description:
+      "A fast-paced endless runner where players control Layla as she runs through a colorful cinema lobby, collecting snacks, popcorn, chocolates, and drinks while dodging obstacles and navigating challenging paths. Smooth swipe-based controls, exciting power-ups, and increasing speed drive endless gameplay built for quick, engaging mobile sessions.",
+    platforms: ["Mobile"],
+    tags: ["3D", "Endless Runner", "Arcade", "Casual"],
+    technologies: ["Unity", "C#"],
+    links: {},
+    icon: "/images/projects/layla-runner/icon.png",
+    images: [],
+    videos: ["/videos/projects/layla-runner/gameplay.mp4"],
+  },
 ];
