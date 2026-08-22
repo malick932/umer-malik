@@ -219,4 +219,18 @@ export const projects: Project[] = [
     images: [],
     videos: ["/videos/projects/flying-birds/gameplay.mp4"],
   },
+  {
+    id: "fashion-game",
+    title: "Fashion Game",
+    tagline: "Dress up, glam up, style up",
+    description:
+      "A fun 2D fashion game where players dress up a girl with stylish outfits, apply makeup, and customize her look with a variety of accessories. Designed with an engaging and colorful UI for an enjoyable fashion experience.",
+    platforms: ["Mobile"],
+    tags: ["2D", "Casual", "Dress-Up", "Simulation"],
+    technologies: ["Unity", "C#"],
+    links: {},
+    icon: "/images/projects/fashion-game/icon.png",
+    images: [],
+    videos: ["/videos/projects/fashion-game/gameplay.mp4"],
+  },
 ];
