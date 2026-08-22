@@ -233,4 +233,18 @@ export const projects: Project[] = [
     images: [],
     videos: ["/videos/projects/fashion-game/gameplay.mp4"],
   },
+  {
+    id: "draw-to-home",
+    title: "Draw to Home",
+    tagline: "Draw the path, get them home safe",
+    description:
+      "A 2D puzzle game where players draw paths to safely guide characters to their huts while avoiding obstacles, traps, and collisions. Combines simple drawing mechanics with strategic path planning and progressively challenging levels.",
+    platforms: ["Mobile"],
+    tags: ["2D", "Puzzle", "Casual"],
+    technologies: ["Unity", "C#"],
+    links: {},
+    icon: "/images/projects/draw-to-home/icon.png",
+    images: [],
+    videos: ["/videos/projects/draw-to-home/gameplay.mp4"],
+  },
 ];
